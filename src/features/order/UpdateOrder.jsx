@@ -5,6 +5,10 @@ import { useFetcher } from 'react-router-dom';
 function UpdateOrder({ order }) {
   const fetcher = useFetcher();
 
+  if (order.status === 'DELIVERED') {
+    return null;
+  }
+
   return (
     <fetcher.Form method="PATCH" className="text-right">
       <Button type="primary">Make priority</Button>

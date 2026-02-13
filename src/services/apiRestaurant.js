@@ -19,9 +19,12 @@ export async function getOrder(id) {
   return data;
 }
 
-export async function getCurrentUserOrders(phone) {
-  const res = await fetch(`${API_URL}/orders/customer/${phone}`);
-  if (!res.ok) throw Error(`Couldn't find order with phone ${phone}`);
+export async function getCurrentUserOrders(phone, username) {
+  const res = await fetch(`${API_URL}/orders/customer/${username}/${phone}`);
+  if (!res.ok)
+    throw Error(
+      `Couldn't find order with phone ${phone} and username ${username}`,
+    );
 
   const { data } = await res.json();
   return data;

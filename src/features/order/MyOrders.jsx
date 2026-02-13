@@ -125,14 +125,14 @@ function MyOrders() {
 // Loader function to fetch current user's orders
 export async function loader() {
   const state = store.getState();
-  const { phone } = state.user;
+  const { phone, username } = state.user;
 
-  if (!phone) {
+  if (!phone || !username) {
     return [];
   }
 
   try {
-    const orders = await getCurrentUserOrders(phone);
+    const orders = await getCurrentUserOrders(phone, username);
     return orders;
   } catch (error) {
     // Return empty array if no orders found
