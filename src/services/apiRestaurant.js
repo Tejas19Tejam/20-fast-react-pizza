@@ -58,9 +58,21 @@ export async function updateOrder(id, updateObj) {
       },
     });
 
-    if (!res.ok) throw Error();
+    if (!res.ok) {
+      // Try to parse error response from backend
+      const errorData = await res.json();
+      const error = new Error(
+        errorData.message || 'Failed updating your order',
+      );
+      error.status = res.status;
+      error.data = errorData;
+      throw error;
+    }
     // We don't need the data, so we don't return anything
   } catch (err) {
+    // Re-throw if it's already our formatted error
+    if (err.data) throw err;
+    // Otherwise throw generic error
     throw Error('Failed updating your order');
   }
 }

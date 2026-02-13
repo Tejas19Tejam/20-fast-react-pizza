@@ -1,9 +1,15 @@
 import Button from '../../ui/Button';
 import { updateOrder } from '../../services/apiRestaurant';
 import { useFetcher } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function UpdateOrder({ order }) {
   const fetcher = useFetcher();
+
+  // Show toast notification based on fetcher state
+  if (fetcher.data && fetcher.state === 'idle') {
+    toast.success('Order updated to priority!');
+  }
 
   if (order.status === 'DELIVERED') {
     return null;
@@ -19,8 +25,13 @@ function UpdateOrder({ order }) {
 export default UpdateOrder;
 
 export async function action({ request, params }) {
-  const { orderId } = params;
-  const updateObj = { priority: true };
-  await updateOrder(orderId, updateObj);
-  return null;
+  try {
+    const { orderId } = params;
+    const updateObj = { priority: true };
+    await updateOrder(orderId, updateObj);
+    return { success: true };
+  } catch (error) {
+    // Re-throw to be caught by error boundary
+    throw error;
+  }
 }

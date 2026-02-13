@@ -8,12 +8,14 @@ import {
 import { getOrder } from '../../services/apiRestaurant';
 import OrderItem from './OrderItem';
 
-import { useFetcher, useLoaderData } from 'react-router-dom';
+import { useFetcher, useLoaderData, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Use to fetch data from another page/resources without navigating.
   const fetcher = useFetcher();
@@ -21,6 +23,16 @@ function Order() {
   useEffect(() => {
     if (!fetcher.data && fetcher.state === 'idle') fetcher.load('/menu');
   }, [fetcher]);
+
+  // Show success toast for new orders
+  useEffect(() => {
+    if (searchParams.get('new') === 'true') {
+      toast.success('Order placed successfully! 🎉');
+      // Remove the 'new' parameter from URL
+      searchParams.delete('new');
+      setSearchParams(searchParams, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {

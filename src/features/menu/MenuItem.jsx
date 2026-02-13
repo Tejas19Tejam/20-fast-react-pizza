@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 import { formatCurrency } from '../../utils/helpers';
 import Button from '../../ui/Button';
 import { addItem, getQuantityById } from '../cart/cartSlice';
@@ -25,6 +26,7 @@ function MenuItem({ pizza }) {
     };
 
     dispatch(addItem(item));
+    toast.success(`${name} added to cart!`);
   }
 
   return (

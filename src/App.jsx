@@ -11,6 +11,7 @@ import CreateOrder, {
 import MyOrders, { loader as myOrdersLoader } from './features/order/MyOrders';
 import AppLayout from './ui/AppLayout';
 import Error from './ui/Error';
+import CreateOrderError from './features/order/CreateOrderError';
 
 // Creating Routers
 // New way to create an route
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         path: '/order/:orderId',
         element: <Order />,
         loader: orderLoader,
-        errorElement: <Error />,
+        errorElement: <CreateOrderError />,
         action: updateOrderAction,
       },
       {

@@ -4,6 +4,7 @@ import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart } from './cartSlice.js';
 import EmptyCart from './EmptyCart.jsx';
+import toast from 'react-hot-toast';
 
 function Cart() {
   const username = useSelector((store) => store.user.username);
@@ -13,6 +14,7 @@ function Cart() {
 
   function handleClearCart() {
     dispatch(clearCart());
+    toast.success('Cart cleared successfully!');
   }
 
   // If not carts are present

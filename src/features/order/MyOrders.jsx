@@ -40,6 +40,7 @@ function MyOrders() {
             cart,
           } = order;
           const deliveryIn = calcMinutesLeft(estimatedDelivery);
+          console.log(deliveryIn);
 
           return (
             <div

@@ -197,7 +197,7 @@ export async function action({ request }) {
   // DO NOT OVERUSE THIS TECHNIQUE.
   store.dispatch(clearCart());
 
-  return redirect(`/order/${newOrder.id}`);
+  return redirect(`/order/${newOrder.id}?new=true`);
 }
 
 export default CreateOrder;
