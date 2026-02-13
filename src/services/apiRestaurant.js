@@ -1,4 +1,4 @@
-const API_URL = 'https://raftlabs-om27.onrender.com/api/v1';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menus`);

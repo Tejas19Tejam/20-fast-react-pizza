@@ -54,6 +54,16 @@ cd 20-fast-react-pizza
 npm install
 ```
 
+3. Create environment file:
+
+```bash
+cp .env.example .env
+```
+
+The `.env` file contains:
+
+- `VITE_API_URL` - Backend API URL
+
 ## Running the Application
 
 ### Development Mode
