@@ -1,5 +1,4 @@
-// const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
-const API_URL = 'http://localhost:5000/api/v1';
+const API_URL = 'https://raftlabs-om27.onrender.com/api/v1';
 
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menus`);
