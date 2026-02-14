@@ -10,7 +10,7 @@ function EmptyCart() {
       </div>
 
       <p className=" mt-7 font-semibold">
-        Your cart is still empty. Start adding some pizzas :)
+        Your cart is still empty. Start adding some items :)
       </p>
     </div>
   );

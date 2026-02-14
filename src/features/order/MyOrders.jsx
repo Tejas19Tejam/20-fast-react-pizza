@@ -101,7 +101,7 @@ function MyOrders() {
 
               <div className="border-t border-stone-200 pt-3">
                 <div className="flex justify-between text-sm text-stone-600">
-                  <span>Pizza price:</span>
+                  <span>Food price:</span>
                   <span>{formatCurrency(orderPrice)}</span>
                 </div>
                 {priority && (

@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className=" flex items-center   justify-between  border-b border-stone-600 bg-amber-400 px-4 py-3 uppercase sm:px-6">
       <Link to="/" className="font-semibold tracking-widest ">
-        Fast React Pizza Co.
+        Fast React Food Co.
       </Link>
 
       {username && (

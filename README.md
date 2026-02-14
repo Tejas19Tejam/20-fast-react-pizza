@@ -1,14 +1,14 @@
-# Fast React Pizza 🍕
+# Fast React Food 🍽️
 
-A modern pizza ordering application built with React, Redux Toolkit, and React Router.
+A modern food ordering application built with React, Redux Toolkit, and React Router.
 
 ## Description
 
-Fast React Pizza is a web application that allows users to browse a pizza menu, add items to their cart, and place orders. The app features a streamlined ordering process where users can track their orders and manage their cart with ease.
+Fast React Food is a web application that allows users to browse a food menu, add items to their cart, and place orders. The app features a streamlined ordering process where users can track their orders and manage their cart with ease.
 
 ## Features
 
-- Browse pizza menu
+- Browse food menu
 - Add/remove items from cart
 - Update item quantities
 - Place orders with delivery details
@@ -45,7 +45,7 @@ Each feature contains its own components, Redux logic (slices), and route handle
 
 ```bash
 git clone <repository-url>
-cd 20-fast-react-pizza
+cd 20-fast-react-food
 ```
 
 2. Install dependencies:
